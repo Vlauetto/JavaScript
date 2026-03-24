@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Primeiro exercicio</title>
+  </head>
+  <body>
+    <p>
+      1. Faça um algoritmo que leia a idade de uma pessoa expressa em anos,
+      meses e dias e mostre-a expressa em dias. Leve em consideração o ano com
+      365 dias e o mês com 30. (Ex: 3 anos, 2 meses e 15 dias = 1170 dias.)
+    </p>
+
+    <script>
+      const mes = 30; //Aqui coloco uma constante pois esses valores são definidos no exercicio e não vão muda
+      const ano = 365; //Aqui coloco uma constante pois esses valores são definidos no exercicio e não vão muda
+
+      let idade_anos = parseFloat(prompt("Coloque sua idade em anos:")); //Peço a idade em anos
+
+      let idade_meses = parseFloat(prompt("Coloque sua idade em meses")); //Peço a idade em meses
+
+      let idade_dias = parseFloat(prompt("Coloque sua idade em dias")); //Peço a idade em dias
+
+      let conta = idade_anos * ano + idade_meses * mes + idade_dias; //o calculo
+      document.write(
+        "Você tem " +
+          idade_anos +
+          "anos," +
+          idade_meses +
+          "meses e" +
+          idade_dias +
+          "dias,<br>" +
+          "Então você tem" +
+          conta +
+          "dias de vida.",
+      ); //retorno
+    </script>
+  </body>
+</html>

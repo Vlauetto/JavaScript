@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quinto exercicio</title>
+  </head>
+  <body>
+    <p>
+      5. Crie um algoritmo que leia o valor do salário mínimo e o valor do
+      salário de um usuário, calcule a quantidade de salários mínimos esse
+      usuário ganha e imprima o resultado. (1SM=R$788,00)
+    </p>
+    <script>
+        
+        const salarioMin = 788.00
+        let salarioUsuario = parseFloat(prompt("Informe seu salário:"));
+
+        let conta = salarioUsuario /salarioMin
+        document.write("Você ganha" + conta.toFixed(2) + "salário mínimos")
+
+    </script>
+  </body>
+</html>
