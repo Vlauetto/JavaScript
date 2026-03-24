@@ -17,5 +17,25 @@
 O algoritmo deve calcular o valor total a ser pago e apresentar o resultado.
 
 Fórmula : (valor1*quant1 + valor2*quant2)*(IPI/100 + 1)</p>
+
+<script>
+
+let ipi = parseFloat(prompt("Porcentagem do IPI (%):"));
+ 
+let codigo1 = prompt("Código da peça 1:");
+let valor1 = parseFloat(prompt("Valor unitário da peça 1:"));
+let quantidade1 = parseInt(prompt("Quantidade da peça 1:"));
+ 
+let codigo2 = prompt("Código da peça 2:");
+let valor2 = parseFloat(prompt("Valor unitário da peça 2:"));
+let quantidade2 = parseInt(prompt("Quantidade da peça 2:"));
+ 
+let total = (valor1 * quantidade1 + valor2 * quantidade2) * (ipi / 100 + 1);
+ 
+document.write("Valor total a pagar: R$ " + total.toFixed(2));
+ </script>
+
+
+
 </body>
 </html>
