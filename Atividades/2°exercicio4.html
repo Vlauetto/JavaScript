@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2° lista de exercício de Javascript</title>
+  </head>
+  <body>
+    <p>
+      4- Dados três valores A, B e C, construa um programa em Javascript, que
+      mostre na tela os valores de forma descendente (do maior para o menor).
+    </p>
+
+    <script>
+      let numero1 = parseFloat(prompt("Digite o primeiro número"));
+      let numero2 = parseFloat(prompt("Digite o segundo número"));
+      let numero3 = parseFloat(prompt("Digite o terceiro número"));
+
+      const menor = numero1;
+      const meio = numero1;
+      const maior = numero1;
+
+      // compara numero2 com numero1 para definir se ele é menor, maior ou igual
+      if (numero2 < numero1) {
+        menor = numero2; // numero2 é o menor até agora
+      } else if (numero2 > numero1) {
+        maior = numero2; // numero2 é o maior até agora
+      } else {
+        meio = numero2;
+      }
+      
+      // compara numero3 com os valores de menor e maior já atualizados
+      if (numero3 < menor) {
+        meio = menor; // o antigo menor vira o meio
+        menor = numero3; // numero3 vira o novo menor
+      } else if (numero3 > maior) {
+        meio = maior; // o antigo maior vira o meio
+        maior = numero3; // numero3 vira o novo maior
+      } else if (numero3 > menor && numero3 < maior)  {
+        meio = numero3; // se numero3 é maior que o menor E menor que o maior, significa que ele está entre os dois extremos, numero3 já é o meio. 
+      }
+
+      alert(
+        "Seus números na forma descendente: " + 
+          maior +
+          ", " +
+          meio +
+          ", " +
+          menor,
+      );
+
+      document.write(
+        "Seus números: " +
+          numero1 +
+          ", " +
+          numero2 +
+          ", " +
+          numero3 +
+          "<br>Na forma descendente: " +
+          maior +
+          ", " +
+          meio +
+          ", " +
+          menor,
+      );
+    </script>
+  </body>
+</html>

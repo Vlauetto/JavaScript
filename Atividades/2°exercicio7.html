@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2 lista de exercicios em Javascript</title>
+  </head>
+  <body>
+    <p>
+      7. Fazer um programa que imprima a média aritmética dos números 8,9 e 7. A
+      média dos números 4, 5 e 6. A soma das duas médias. A média das médias.
+    </p>
+
+    <script>
+      let num7 = 7;
+      let num8 = 8;
+      let num9 = 9;
+      let mediaArimética = (num7 + num8 + num9) / 3;
+      document.write(
+        "<br>A média aritmética dos números 7,8 e 9 é de:" + mediaArimética,
+      );
+
+      let num4 = 4;
+      let num5 = 5;
+      let num6 = 6;
+      let media = (num4 + num5 + num6) / 3;
+      document.write("<br>A média dos números 4,5 e 6 é de:" + media);
+
+      let soma = mediaArimética + media;
+      document.write("<br>A soma das médias é:" + soma);
+    </script>
+  </body>
+</html>

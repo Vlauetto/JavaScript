@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testando Switch/case</title>
+</head>
+<body>
+    <h1> Tesando o comando condicional Switch-case</h1>
+
+    <script>
+     let NumeroCombo = parseInt(prompt("Entre com o número do seu combo:"))
+        let Combo;
+
+        switch(NumeroCombo){
+            case 1: Combo = " McOferta Big Mac, McFritas Grande e Del Valle Laranja 300ml <br> R$50,00"
+            break;
+
+            case 2: Combo = "McOferta Quarteirão com queijo, 10 (dez) McNuggets, 1(uma) Sobremesa Super Mario Galaxy <br> R$70,90"
+            break;
+
+            case 3: Combo = "McOferta 2 Sanduíches Clássicos + McFritas Grande + 2 Refri Refill + 2 Sundaes 62 <br> R$65,00"
+            break;
+
+            case 4: Combo = "McOferta Tasty turbo 1 carne + Refri refill + McFritas média <br> R$35,00"
+            break;
+
+            case 5: Combo = "McOferta Mcchicken + McFritas + Sprint <br> R$26,00"
+            break;
+
+            default: NumeroCombo = "Combo Inexistente"
+        }
+
+        document.write(Combo)
+        </script>
+</body>
+</html>

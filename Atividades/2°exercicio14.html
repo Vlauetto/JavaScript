@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2 lista de exercicio em javascript</title>
+  </head>
+  <body>
+    <p>
+      14- Escreva um programa que leia 10 números do usuário e calcule a soma
+      desses números.
+    </p>
+
+    <script>
+      let soma = 0;
+
+      for (let i = 1; i <= 10; i++) {
+        let numero = parseFloat(prompt("Digite o " + i + "º número:"));
+        soma = soma + numero;
+      }
+
+      alert("A soma dos 10 números é: " + soma);
+      document.write("A soma dos 10 números é: " + soma);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2° lista de exercício de Javascript</title>
+  </head>
+  <body>
+    <p>
+      Criar um programa em Javascript, que informe a quantidade total de
+      calorias de uma refeição a partir do usuário que deverá informar o prato,
+      a sobremesa e a bebida (veja a tabela a seguir). Sugestão: enumere cada
+      opção de prato, sobremesa e bebida. Ou seja: Prato: 1 - vegetariano, 2 –
+      Peixe, 3 – Frango, 4 – Carne; Sobremesa: 1 – Abacaxi, 2 – Sorvete diet, 3
+      – Mouse diet, 4 – Mouse chocolate; Bebida: 1 – Chá, 2 - Suco de laranja, 3
+      – Suco de melão, 4 – Refrigerante diet.
+    </p>
+
+    <script>
+      // Pergunta o prato pro usuário
+      let prato = prompt(
+        "Escolha o prato:\n1 - Vegetariano\n2 - Peixe\n3 - Frango\n4 - Carne",
+      );
+
+      // Verifica qual prato foi escolhido
+      let calPrato;
+      switch (prato) {
+        case "1":
+          calPrato = 180;
+          break;
+        case "2":
+          calPrato = 230;
+          break;
+        case "3":
+          calPrato = 250;
+          break;
+        case "4":
+          calPrato = 350;
+          break;
+        default:
+          calPrato = 0;
+      }
+
+      // Pergunta a sobremesa pro usuário
+      let sobremesa = prompt(
+        "Escolha a sobremesa:\n1 - Abacaxi\n2 - Sorvete Diet\n3 - Mousse Diet\n4 - Mousse Chocolate",
+      );
+
+      // Verifica qual sobremesa foi escolhida
+      let calSobremesa;
+      switch (sobremesa) {
+        case "1":
+          calSobremesa = 75;
+          break; // Abacaxi
+        case "2":
+          calSobremesa = 110;
+          break; // Sorvete Diet
+        case "3":
+          calSobremesa = 170;
+          break; // Mousse Diet
+        case "4":
+          calSobremesa = 200;
+          break; // Mousse Chocolate
+        default:
+          calSobremesa = 0;
+      }
+
+      // Pergunta a bebida pro usuário
+      let bebida = prompt(
+        "Escolha a bebida:\n1 - Chá\n2 - Suco de Laranja\n3 - Suco de Melão\n4 - Refrigerante Diet",
+      );
+
+      // Verifica qual bebida foi escolhida com if
+      let calBebida;
+      if (bebida == 1)
+        calBebida = 20; // chá
+      else if (bebida == 2)
+        calBebida = 70; // suco de laranja
+      else if (bebida == 3)
+        calBebida = 100; // suco de melão
+      else if (bebida == 4)
+        calBebida = 65; // refrigerante diet
+      else calBebida = 0; // Nenhum selecionado
+
+      // Soma tudo
+      let total = calPrato + calSobremesa + calBebida;
+
+      // Mostra o resultado
+      alert(
+        "RESULTADO\n" +
+          "Prato:     " +
+          calPrato +
+          " kcal\n" +
+          "Sobremesa: " +
+          calSobremesa +
+          " kcal\n" +
+          "Bebida:    " +
+          calBebida +
+          " kcal\n" +
+          "\n " +
+          "Total:     " +
+          total +
+          " kcal",
+      );
+    </script>
+  </body>
+</html>

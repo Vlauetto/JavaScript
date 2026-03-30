@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 lista de exercicios em javascript</title>
+</head>
+<body>
+    <p>10. Informar um saldo e imprimir o saldo com reajuste de 1.5%.</p>
+
+    <script>
+        let saldo = parseFloat(prompt("Informe seu saldo:"));
+        let reajuste = saldo * 0.015;
+        let saldoNovo = saldo + reajuste;
+
+
+        document.write("<br> Seu saldo atual era de R$:" + saldo);
+        document.write("<br> Seu reajuste é de R$:" + reajuste);
+        document.write("<br> Seu saldo com reajuste de 1.5% ficou R$:" + saldoNovo);
+    </script>
+</body>
+</html>
