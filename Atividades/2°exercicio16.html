@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>2° lista de exercicio em javascript</title>
 </head>
 <body>
     <p>
@@ -11,15 +11,16 @@
     </p>
 
     <script>
-        let media = 0;
+        let soma = 0;
 
       for (let i = 1; i <= 20; i++) {
         let idade = parseFloat(prompt("Digite a " + i + "ª idade:"));
-        media = media + idade;
+        soma = soma + idade;
+        media = soma / 20;
       }
 
-      alert("A soma das 20 idades é: " + soma);
-      document.write("A soma das 20 idades é: " + soma);
+      alert("A media das 20 idades é: " + media);
+      document.write("A soma das 20 idades é: " + soma + "<br> e a média delas é" + media);
     </script>
 </body>
 </html>

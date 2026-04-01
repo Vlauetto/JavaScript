@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2° lista de exercicio em javascrip</title>
+  </head>
+  <body>
+    <p>
+      21- A Loja Mamão com Açúcar está vendendo seus produtos em 5 (cinco)
+      prestações sem juros. Faça um programa que receba um valor de uma compra e
+      mostre o valor das prestações.
+    </p>
+
+    <script>
+      let compra = parseFloat(prompt("Digite o valor da compra (R$):"));
+
+      let parcela = compra / 5;
+
+      alert("Valor de cada parcela: R$ " + parcela.toFixed(2));
+    </script>
+  </body>
+</html>

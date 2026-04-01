@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2° lista de exercicio em javascrip</title>
+  </head>
+  <body>
+    <p>
+      25 Escreva um programa que leia uma sequência de números do usuário e
+      realize e a soma desses números. Encerre a execução quando um número
+      negativo for digitado.
+    </p>
+
+    <script>
+      let soma = 0;
+      let numero = 0;
+
+      while (numero >= 0) {
+        numero = parseFloat(
+          prompt("Digite um número (negativo para encerrar):"),
+        );
+
+        if (numero >= 0) {
+          soma += numero;
+        }
+      }
+
+      alert("Soma total: " + soma);
+    </script>
+  </body>
+</html>

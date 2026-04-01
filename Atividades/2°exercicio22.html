@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2° lista de exercicio em javascrip</title>
+  </head>
+  <body>
+    <p>
+      22- Faça um programa que leia 20 números e, ao final, escreva quantos
+      estão entre 0 e 100.
+    </p>
+
+    <script>
+      let contador = 0;
+
+      for (let i = 1; i <= 20; i++) {
+        let numero = parseFloat(prompt("Digite o " + i + "º número:"));
+
+        if (numero >= 0 && numero <= 100) {
+          contador++;
+        }
+      }
+
+      alert("Quantidade de números entre 0 e 100: " + contador);
+    </script>
+  </body>
+</html>
