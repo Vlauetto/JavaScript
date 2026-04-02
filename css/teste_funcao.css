@@ -1,0 +1,44 @@
+body{
+    text-align: center;
+}
+
+img{
+    width: 100px;
+    height: 80px;
+    margin: 30px;
+}
+
+div{
+    position: absolute;
+    width: 400px;
+    height: 250px;
+    border: 5px solid ;
+    padding: 10px;
+    font-size: 14px;
+    text-align: justify;
+    top: 250px;
+    left: 550px;
+    visibility: hidden; 
+}
+
+div img{
+    width: 80px;
+    height: 60px;
+    margin: 10px;
+    float: left;
+}
+
+#camada1{
+    background-color: aqua;
+    color: black;
+}
+
+#camada2{
+    background-color: rgb(11, 114, 118);
+    color: black;
+}
+
+#camada3{
+    background-color: rgb(222, 192, 250);
+    color: black;
+}

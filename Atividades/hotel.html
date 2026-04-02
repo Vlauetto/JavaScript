@@ -1,0 +1,910 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sistema Hoteleiro</title>
+  </head>
+  <body>
+    <!-- TELA: Nome do Hotel -->
+    <div id="s-hotel">
+      <h2>Sistema de Gestão Hoteleira</h2>
+      <p>Qual o nome do hotel?</p>
+      <input type="text" id="input-hotel" />
+      <br /><br />
+      <button onclick="confirmarHotel()">Continuar</button>
+      <p id="msg-hotel"></p>
+    </div>
+
+    <!-- TELA: Login -->
+    <div id="s-login" style="display: none">
+      <h2 id="login-titulo"></h2>
+      <p>Qual o seu nome?</p>
+      <input type="text" id="input-nome" />
+      <br /><br />
+      <p>Senha:</p>
+      <input type="password" id="input-senha" />
+      <br /><br />
+      <button onclick="login()">Entrar</button>
+      <p id="msg-login"></p>
+    </div>
+
+    <!-- TELA: Menu Principal -->
+    <div id="s-menu" style="display: none">
+      <h2 id="menu-boas-vindas"></h2>
+      <p>Selecione uma opcao:</p>
+      <button onclick="ir(1)">1 - Quartos</button>
+      <button onclick="ir(2)">2 - Familia</button>
+      <button onclick="ir(3)">3 - Cadastro</button>
+      <button onclick="ir(4)">4 - Eventos</button>
+      <button onclick="ir(5)">5 - Buffet</button>
+      <button onclick="ir(6)">6 - Auditorio</button>
+      <button onclick="ir(7)">7 - Restaurante</button>
+      <button onclick="ir(8)">8 - Combustivel</button>
+      <button onclick="ir(9)">9 - Ar-condicionado</button>
+      <br /><br />
+      <button onclick="sair()">Sair</button>
+    </div>
+
+    <!-- TELA 1: Quartos -->
+    <div id="s-1" style="display: none">
+      <h2>1 - Reserva de Quarto</h2>
+
+      <div id="s1-passo1">
+        <p>Qual o valor padrao da diaria?</p>
+        <input type="number" id="s1-diaria" />
+        <br /><br />
+        <p>Quantas diarias serao necessarias?</p>
+        <input type="number" id="s1-dias" />
+        <br /><br />
+        <button onclick="s1passo1()">Calcular</button>
+        <p id="s1-msg1"></p>
+      </div>
+
+      <div id="s1-passo2" style="display: none">
+        <p id="s1-resumo"></p>
+        <p>Qual o nome do hospede?</p>
+        <input type="text" id="s1-hospede" />
+        <br /><br />
+        <button onclick="s1passo2()">Proximo</button>
+      </div>
+
+      <div id="s1-passo3" style="display: none">
+        <p id="s1-pergunta-confirmacao"></p>
+        <button onclick="s1confirmar('S')">S</button>
+        <button onclick="s1confirmar('N')">N</button>
+      </div>
+
+      <p id="s1-resultado"></p>
+      <br />
+      <button id="s1-voltar" style="display: none" onclick="voltar()">
+        Voltar ao menu
+      </button>
+    </div>
+
+    <!-- TELA 2: Familia -->
+    <div id="s-2" style="display: none">
+      <h2>2 - Cadastro de Grupo</h2>
+
+      <div id="s2-passo1">
+        <p>Qual o valor padrao da diaria?</p>
+        <input type="number" id="s2-diaria" />
+        <br /><br />
+        <button onclick="s2iniciar()">Iniciar</button>
+      </div>
+
+      <div id="s2-form" style="display: none">
+        <p>Qual o nome do Hospede? (Digite PARE para encerrar)</p>
+        <input type="text" id="s2-nome" />
+        <br /><br />
+        <p>Qual a idade do Hospede?</p>
+        <input type="number" id="s2-idade" />
+        <br /><br />
+        <button onclick="s2adicionar()">Adicionar</button>
+        <p id="s2-msg"></p>
+      </div>
+
+      <p id="s2-resultado"></p>
+      <br />
+      <button id="s2-voltar" style="display: none" onclick="voltar()">
+        Voltar ao menu
+      </button>
+    </div>
+
+    <!-- TELA 3: Cadastro e Pesquisa -->
+    <div id="s-3" style="display: none">
+      <h2>3 - Cadastro e Pesquisa de Hospedes</h2>
+      <p>Selecione uma opcao: 1 - Cadastrar | 2 - Pesquisar | 3 - Sair</p>
+      <button onclick="s3modo('cad')">1 - Cadastrar</button>
+      <button onclick="s3modo('pes')">2 - Pesquisar</button>
+      <button onclick="voltar()">3 - Sair</button>
+
+      <div id="s3-cad" style="display: none">
+        <br />
+        <p>Qual o nome do Hospede?</p>
+        <input type="text" id="s3-cnome" />
+        <br /><br />
+        <button onclick="s3cadastrar()">Cadastrar</button>
+        <p id="s3-cmsg"></p>
+      </div>
+
+      <div id="s3-pes" style="display: none">
+        <br />
+        <p>Qual o nome do Hospede?</p>
+        <input type="text" id="s3-pnome" />
+        <br /><br />
+        <button onclick="s3pesquisar()">Pesquisar</button>
+        <p id="s3-pmsg"></p>
+      </div>
+    </div>
+
+    <!-- TELA 4: Eventos / Garcons -->
+    <div id="s-4" style="display: none">
+      <h2>4 - Garcons para Eventos</h2>
+
+      <div id="s4-form">
+        <p>Qual a duracao do evento em horas?</p>
+        <input type="number" id="s4-horas" />
+        <br /><br />
+        <p>Quantos garcons serao necessarios?</p>
+        <input type="number" id="s4-garcons" />
+        <br /><br />
+        <button onclick="s4calcular()">Calcular</button>
+        <p id="s4-msg"></p>
+      </div>
+
+      <div id="s4-confirma" style="display: none">
+        <p id="s4-resumo"></p>
+        <p>Gostaria de efetuar a reserva? S/N</p>
+        <button onclick="s4confirmar('S')">S</button>
+        <button onclick="s4confirmar('N')">N</button>
+      </div>
+
+      <p id="s4-resultado"></p>
+      <br />
+      <button id="s4-voltar" style="display: none" onclick="voltar()">
+        Voltar ao menu
+      </button>
+    </div>
+
+    <!-- TELA 5: Buffet -->
+    <div id="s-5" style="display: none">
+      <h2>5 - Buffet do Evento</h2>
+
+      <div id="s5-form">
+        <p>Qual o numero de convidados para o evento?</p>
+        <input type="number" id="s5-conv" />
+        <br /><br />
+        <button onclick="s5calcular()">Calcular</button>
+        <p id="s5-msg"></p>
+      </div>
+
+      <div id="s5-confirma" style="display: none">
+        <p id="s5-resumo"></p>
+        <p>Gostaria de efetuar a reserva? S/N</p>
+        <button onclick="s5confirmar('S')">S</button>
+        <button onclick="s5confirmar('N')">N</button>
+      </div>
+
+      <p id="s5-resultado"></p>
+      <br />
+      <button id="s5-voltar" style="display: none" onclick="voltar()">
+        Voltar ao menu
+      </button>
+    </div>
+
+    <!-- TELA 6: Auditorio -->
+    <div id="s-6" style="display: none">
+      <h2>6 - Escolha de Auditorio</h2>
+      <p>Auditorio Laranja: 150 lugares + ate 70 adicionais</p>
+      <p>Auditorio Colorado: 350 lugares fixos</p>
+
+      <div id="s6-form">
+        <p>Qual o numero de convidados para o seu evento?</p>
+        <input type="number" id="s6-conv" />
+        <br /><br />
+        <button onclick="s6calcular()">Verificar</button>
+        <p id="s6-msg"></p>
+      </div>
+
+      <div id="s6-confirma" style="display: none">
+        <p id="s6-resumo"></p>
+        <p>Gostaria de efetuar a reserva? S/N</p>
+        <button onclick="s6confirmar('S')">S</button>
+        <button onclick="s6confirmar('N')">N</button>
+      </div>
+
+      <p id="s6-resultado"></p>
+      <br />
+      <button id="s6-voltar" style="display: none" onclick="voltar()">
+        Voltar ao menu
+      </button>
+    </div>
+
+    <!-- TELA 7: Restaurante -->
+    <div id="s-7" style="display: none">
+      <h2>7 - Reserva do Restaurante</h2>
+      <p>Segunda a sexta: 7h as 23h | Sabado e domingo: 7h as 15h</p>
+
+      <div id="s7-form">
+        <p>Qual o dia do seu evento? (ex: segunda, sabado)</p>
+        <input type="text" id="s7-dia" />
+        <br /><br />
+        <p>Qual a hora do seu evento?</p>
+        <input type="number" id="s7-hora" />
+        <br /><br />
+        <button onclick="s7verificar()">Verificar</button>
+        <p id="s7-msg"></p>
+      </div>
+
+      <div id="s7-empresa" style="display: none">
+        <p>Qual o nome da empresa?</p>
+        <input type="text" id="s7-emp" />
+        <br /><br />
+        <button onclick="s7reservar()">Reservar</button>
+      </div>
+
+      <p id="s7-resultado"></p>
+      <br />
+      <button id="s7-voltar" style="display: none" onclick="voltar()">
+        Voltar ao menu
+      </button>
+    </div>
+
+    <!-- TELA 8: Combustivel -->
+    <div id="s-8" style="display: none">
+      <h2>8 - Comparar Combustivel</h2>
+      <p>
+        Tanque: 42 litros. Alcool compensa quando custar ate 70% do preco da
+        gasolina.
+      </p>
+
+      <p>Qual o valor do alcool no posto Wayne Oil?</p>
+      <input type="number" id="s8-awO" step="0.01" />
+      <br /><br />
+      <p>Qual o valor da gasolina no posto Wayne Oil?</p>
+      <input type="number" id="s8-gwO" step="0.01" />
+      <br /><br />
+      <p>Qual o valor do alcool no posto Stark Petrol?</p>
+      <input type="number" id="s8-aSp" step="0.01" />
+      <br /><br />
+      <p>Qual o valor da gasolina no posto Stark Petrol?</p>
+      <input type="number" id="s8-gSp" step="0.01" />
+      <br /><br />
+      <button onclick="s8calcular()">Calcular melhor opcao</button>
+      <p id="s8-resultado"></p>
+      <br />
+      <button onclick="voltar()">Voltar ao menu</button>
+    </div>
+
+    <!-- TELA 9: Ar-condicionado -->
+    <div id="s-9" style="display: none">
+      <h2>9 - Orcamento de Ar-condicionado</h2>
+
+      <div id="s9-form">
+        <p>Qual o nome da empresa?</p>
+        <input type="text" id="s9-emp" />
+        <br /><br />
+        <p>Qual o valor por aparelho?</p>
+        <input type="number" id="s9-vap" />
+        <br /><br />
+        <p>Qual a quantidade de aparelhos?</p>
+        <input type="number" id="s9-qtd" />
+        <br /><br />
+        <p>Qual a porcentagem de desconto? (0 se nao houver)</p>
+        <input type="number" id="s9-desc" />
+        <br /><br />
+        <p>Qual o numero minimo de aparelhos para conseguir o desconto?</p>
+        <input type="number" id="s9-min" />
+        <br /><br />
+        <button onclick="s9calcular()">Calcular</button>
+        <p id="s9-msg"></p>
+      </div>
+
+      <p id="s9-resultado"></p>
+      <br />
+      <button id="s9-voltar" style="display: none" onclick="voltar()">
+        Voltar ao menu
+      </button>
+    </div>
+
+    <script>
+      var hotel = "";
+      var nome = "";
+      var s2diaria = 0,
+        s2total = 0,
+        s2gratu = 0,
+        s2meias = 0;
+      var s3hospedes = [];
+      var s1dados = {},
+        s4dados = {},
+        s5dados = {},
+        s6dados = {},
+        s7dados = {};
+      var s9empresas = [];
+
+      function g(id) {
+        return document.getElementById(id);
+      }
+
+      function mostrar(id) {
+        g(id).style.display = "block";
+      }
+      function esconder(id) {
+        g(id).style.display = "none";
+      }
+
+      function mostrarTela(id) {
+        var telas = [
+          "s-hotel",
+          "s-login",
+          "s-menu",
+          "s-1",
+          "s-2",
+          "s-3",
+          "s-4",
+          "s-5",
+          "s-6",
+          "s-7",
+          "s-8",
+          "s-9",
+        ];
+        for (var i = 0; i < telas.length; i++) {
+          esconder(telas[i]);
+        }
+        mostrar(id);
+      }
+
+      function confirmarHotel() {
+        var h = g("input-hotel").value.trim();
+        if (!h) {
+          g("msg-hotel").textContent = "Informe o nome do hotel.";
+          return;
+        }
+        hotel = h;
+        g("login-titulo").textContent = "Hotel " + hotel;
+        mostrarTela("s-login");
+      }
+
+      function login() {
+        var n = g("input-nome").value.trim();
+        var s = g("input-senha").value.trim();
+        if (!n) {
+          g("msg-login").textContent = "Informe seu nome.";
+          return;
+        }
+        if (s !== "2678") {
+          g("msg-login").textContent = "Senha incorreta.";
+          return;
+        }
+        nome = n;
+        g("menu-boas-vindas").textContent =
+          "Bem vindo ao Hotel " +
+          hotel +
+          ", " +
+          nome +
+          ". E um imenso prazer ter voce por aqui!";
+        mostrarTela("s-menu");
+      }
+
+      function sair() {
+        alert("Muito obrigado e ate logo, " + nome + ".");
+        g("input-nome").value = "";
+        g("input-senha").value = "";
+        mostrarTela("s-login");
+      }
+
+      function voltar() {
+        mostrarTela("s-menu");
+      }
+
+      function ir(n) {
+        switch (n) {
+          case 1:
+            resetar1();
+            mostrarTela("s-1");
+            break;
+          case 2:
+            resetar2();
+            mostrarTela("s-2");
+            break;
+          case 3:
+            mostrarTela("s-3");
+            break;
+          case 4:
+            resetar4();
+            mostrarTela("s-4");
+            break;
+          case 5:
+            resetar5();
+            mostrarTela("s-5");
+            break;
+          case 6:
+            resetar6();
+            mostrarTela("s-6");
+            break;
+          case 7:
+            resetar7();
+            mostrarTela("s-7");
+            break;
+          case 8:
+            mostrarTela("s-8");
+            break;
+          case 9:
+            resetar9();
+            mostrarTela("s-9");
+            break;
+        }
+      }
+
+      // ---- PROGRAMA 1 ----
+      function resetar1() {
+        mostrar("s1-passo1");
+        esconder("s1-passo2");
+        esconder("s1-passo3");
+        esconder("s1-voltar");
+        g("s1-diaria").value = "";
+        g("s1-dias").value = "";
+        g("s1-hospede").value = "";
+        g("s1-msg1").textContent = "";
+        g("s1-resultado").textContent = "";
+      }
+
+      function s1passo1() {
+        var d = parseFloat(g("s1-diaria").value);
+        var dias = parseInt(g("s1-dias").value);
+        if (isNaN(d) || d < 0) {
+          g("s1-msg1").textContent = "Valor invalido, " + nome + ".";
+          return;
+        }
+        if (isNaN(dias) || dias < 0 || dias > 30) {
+          g("s1-msg1").textContent = "Valor invalido, " + nome + ".";
+          return;
+        }
+        s1dados = { d: d, dias: dias, total: d * dias };
+        g("s1-resumo").textContent =
+          "O valor de " +
+          dias +
+          " dias de hospedagem e de R$" +
+          s1dados.total.toFixed(2);
+        esconder("s1-passo1");
+        mostrar("s1-passo2");
+      }
+
+      function s1passo2() {
+        var h = g("s1-hospede").value.trim();
+        if (!h) return;
+        s1dados.hospede = h;
+        g("s1-pergunta-confirmacao").textContent =
+          nome +
+          ", voce confirma a hospedagem para " +
+          h +
+          " por " +
+          s1dados.dias +
+          " dias? S/N";
+        esconder("s1-passo2");
+        mostrar("s1-passo3");
+      }
+
+      function s1confirmar(r) {
+        esconder("s1-passo3");
+        if (r === "S") {
+          g("s1-resultado").textContent =
+            nome +
+            ", reserva efetuada para " +
+            s1dados.hospede +
+            ". O valor total e de R$" +
+            s1dados.total.toFixed(2) +
+            ".";
+        } else {
+          g("s1-resultado").textContent = nome + ", reserva nao efetuada.";
+        }
+        mostrar("s1-voltar");
+      }
+
+      // ---- PROGRAMA 2 ----
+      function resetar2() {
+        mostrar("s2-passo1");
+        esconder("s2-form");
+        esconder("s2-voltar");
+        g("s2-diaria").value = "";
+        g("s2-nome").value = "";
+        g("s2-idade").value = "";
+        g("s2-msg").textContent = "";
+        g("s2-resultado").textContent = "";
+        s2diaria = 0;
+        s2total = 0;
+        s2gratu = 0;
+        s2meias = 0;
+      }
+
+      function s2iniciar() {
+        var d = parseFloat(g("s2-diaria").value);
+        if (isNaN(d) || d <= 0) return;
+        s2diaria = d;
+        s2total = 0;
+        s2gratu = 0;
+        s2meias = 0;
+        esconder("s2-passo1");
+        mostrar("s2-form");
+      }
+
+      function s2adicionar() {
+        var n2 = g("s2-nome").value.trim();
+        if (!n2) return;
+        if (n2.toUpperCase() === "PARE") {
+          g("s2-msg").textContent = "";
+          g("s2-resultado").textContent =
+            nome +
+            ", o valor total das hospedagens e: R$" +
+            s2total.toFixed(2) +
+            "; " +
+            s2gratu +
+            " gratuidade(s); " +
+            s2meias +
+            " meia(s)";
+          esconder("s2-form");
+          mostrar("s2-voltar");
+          return;
+        }
+        var idade = parseInt(g("s2-idade").value);
+        if (isNaN(idade) || idade < 0) {
+          g("s2-msg").textContent = "Informe uma idade valida.";
+          return;
+        }
+        var texto = n2 + " cadastrada(o) com sucesso.";
+        if (idade < 6) {
+          s2gratu++;
+          texto += " " + n2.split(" ")[0] + " possui gratuidade";
+        } else if (idade > 60) {
+          s2meias++;
+          s2total += s2diaria / 2;
+          texto += " " + n2.split(" ")[0] + " paga meia";
+        } else {
+          s2total += s2diaria;
+        }
+        g("s2-msg").textContent = texto;
+        g("s2-nome").value = "";
+        g("s2-idade").value = "";
+      }
+
+      // ---- PROGRAMA 3 ----
+      function s3modo(m) {
+        esconder("s3-cad");
+        esconder("s3-pes");
+        g("s3-cmsg").textContent = "";
+        g("s3-pmsg").textContent = "";
+        if (m === "cad") mostrar("s3-cad");
+        else mostrar("s3-pes");
+      }
+
+      function s3cadastrar() {
+        if (s3hospedes.length >= 15) {
+          g("s3-cmsg").textContent = "Maximo de cadastros atingido.";
+          return;
+        }
+        var n2 = g("s3-cnome").value.trim();
+        if (!n2) return;
+        s3hospedes.push(n2);
+        g("s3-cmsg").textContent =
+          "Hospede " + n2 + " foi cadastrada(o) com sucesso!";
+        g("s3-cnome").value = "";
+      }
+
+      function s3pesquisar() {
+        var n2 = g("s3-pnome").value.trim();
+        if (!n2) return;
+        var encontrado = false;
+        for (var i = 0; i < s3hospedes.length; i++) {
+          if (s3hospedes[i] === n2) {
+            encontrado = true;
+            break;
+          }
+        }
+        if (encontrado)
+          g("s3-pmsg").textContent = "Hospede " + n2 + " foi encontrada(o)!";
+        else
+          g("s3-pmsg").textContent =
+            "Hospede " + n2 + " nao foi encontrada(o)!";
+      }
+
+      // ---- PROGRAMA 4 ----
+      function resetar4() {
+        mostrar("s4-form");
+        esconder("s4-confirma");
+        esconder("s4-voltar");
+        g("s4-horas").value = "";
+        g("s4-garcons").value = "";
+        g("s4-msg").textContent = "";
+        g("s4-resultado").textContent = "";
+      }
+
+      function s4calcular() {
+        var hrs = parseFloat(g("s4-horas").value);
+        var garc = parseInt(g("s4-garcons").value);
+        if (isNaN(hrs) || hrs <= 0 || isNaN(garc) || garc <= 0) {
+          g("s4-msg").textContent = "Informe valores validos.";
+          return;
+        }
+        s4dados = { hrs: hrs, garc: garc, total: garc * hrs * 10.5 };
+        g("s4-resumo").textContent =
+          "Custo total: R$ " + s4dados.total.toFixed(2);
+        esconder("s4-form");
+        mostrar("s4-confirma");
+      }
+
+      function s4confirmar(r) {
+        esconder("s4-confirma");
+        if (r === "S")
+          g("s4-resultado").textContent =
+            nome + ", reserva efetuada com sucesso.";
+        else g("s4-resultado").textContent = nome + ", reserva nao efetuada.";
+        mostrar("s4-voltar");
+      }
+
+      // ---- PROGRAMA 5 ----
+      function resetar5() {
+        mostrar("s5-form");
+        esconder("s5-confirma");
+        esconder("s5-voltar");
+        g("s5-conv").value = "";
+        g("s5-msg").textContent = "";
+        g("s5-resultado").textContent = "";
+      }
+
+      function s5calcular() {
+        var conv = parseInt(g("s5-conv").value);
+        if (isNaN(conv) || conv <= 0) {
+          g("s5-msg").textContent = "Informe um valor valido.";
+          return;
+        }
+        if (conv > 350) {
+          g("s5-msg").textContent =
+            "Quantidade de convidados superior a capacidade maxima.";
+          return;
+        }
+        var cafe = (conv * 0.2).toFixed(1);
+        var agua = (conv * 0.5).toFixed(1);
+        var salg = conv * 7;
+        var total = (
+          conv * 0.2 * 0.8 +
+          conv * 0.5 * 0.4 +
+          (salg / 100) * 34
+        ).toFixed(2);
+        s5dados = {
+          conv: conv,
+          cafe: cafe,
+          agua: agua,
+          salg: salg,
+          total: total,
+        };
+        g("s5-resumo").textContent =
+          "O evento precisara de " +
+          cafe +
+          " litros de cafe, " +
+          agua +
+          " litros de agua, " +
+          salg +
+          " salgados. O custo total sera de R$ " +
+          total;
+        g("s5-msg").textContent = "";
+        mostrar("s5-confirma");
+      }
+
+      function s5confirmar(r) {
+        esconder("s5-confirma");
+        if (r === "S")
+          g("s5-resultado").textContent =
+            nome + ", reserva efetuada com sucesso.";
+        else g("s5-resultado").textContent = nome + ", reserva nao efetuada.";
+        mostrar("s5-voltar");
+      }
+
+      // ---- PROGRAMA 6 ----
+      function resetar6() {
+        mostrar("s6-form");
+        esconder("s6-confirma");
+        esconder("s6-voltar");
+        g("s6-conv").value = "";
+        g("s6-msg").textContent = "";
+        g("s6-resultado").textContent = "";
+      }
+
+      function s6calcular() {
+        var conv = parseInt(g("s6-conv").value);
+        if (isNaN(conv) || conv < 0 || conv > 350) {
+          g("s6-msg").textContent = "Numero de convidados invalido.";
+          return;
+        }
+        var txt = "";
+        if (conv <= 150)
+          txt = "Use o auditorio Laranja (sem cadeiras adicionais)";
+        else if (conv <= 220)
+          txt =
+            "Use o auditorio Laranja (inclua mais " +
+            (conv - 150) +
+            " cadeiras)";
+        else txt = "Use o auditorio Colorado";
+        s6dados = { conv: conv, txt: txt };
+        g("s6-resumo").textContent = txt;
+        g("s6-msg").textContent = "";
+        mostrar("s6-confirma");
+      }
+
+      function s6confirmar(r) {
+        esconder("s6-confirma");
+        if (r === "S")
+          g("s6-resultado").textContent =
+            nome + ", reserva efetuada com sucesso.";
+        else g("s6-resultado").textContent = nome + ", reserva nao efetuada.";
+        mostrar("s6-voltar");
+      }
+
+      // ---- PROGRAMA 7 ----
+      function resetar7() {
+        mostrar("s7-form");
+        esconder("s7-empresa");
+        esconder("s7-voltar");
+        g("s7-dia").value = "";
+        g("s7-hora").value = "";
+        g("s7-emp").value = "";
+        g("s7-msg").textContent = "";
+        g("s7-resultado").textContent = "";
+      }
+
+      function s7verificar() {
+        var dia = g("s7-dia").value.trim().toLowerCase();
+        var hora = parseInt(g("s7-hora").value);
+        var fds = ["sabado", "domingo"];
+        var semana = ["segunda", "terca", "quarta", "quinta", "sexta"];
+        var valido = false;
+        for (var i = 0; i < semana.length; i++)
+          if (semana[i] === dia) valido = true;
+        for (var i = 0; i < fds.length; i++) if (fds[i] === dia) valido = true;
+        if (!valido) {
+          g("s7-msg").textContent = "Dia invalido.";
+          return;
+        }
+        var disponivel = false;
+        if (dia === "sabado" || dia === "domingo")
+          disponivel = hora >= 7 && hora <= 15;
+        else disponivel = hora >= 7 && hora <= 23;
+        if (!disponivel) {
+          g("s7-msg").textContent = "Restaurante indisponivel.";
+          esconder("s7-empresa");
+          return;
+        }
+        s7dados = { dia: dia, hora: hora };
+        g("s7-msg").textContent = "";
+        mostrar("s7-empresa");
+      }
+
+      function s7reservar() {
+        var emp = g("s7-emp").value.trim();
+        if (!emp) return;
+        var dMap = {
+          segunda: "Segunda",
+          terca: "Terca",
+          quarta: "Quarta",
+          quinta: "Quinta",
+          sexta: "Sexta",
+          sabado: "Sabado",
+          domingo: "Domingo",
+        };
+        esconder("s7-empresa");
+        g("s7-resultado").textContent =
+          "Restaurante reservado para " +
+          emp +
+          ". " +
+          (dMap[s7dados.dia] || s7dados.dia) +
+          " as " +
+          s7dados.hora +
+          "hs.";
+        mostrar("s7-voltar");
+      }
+
+      // ---- PROGRAMA 8 ----
+      function s8calcular() {
+        var aWO = parseFloat(g("s8-awO").value);
+        var gWO = parseFloat(g("s8-gwO").value);
+        var aSP = parseFloat(g("s8-aSp").value);
+        var gSP = parseFloat(g("s8-gSp").value);
+        if (
+          isNaN(aWO) ||
+          isNaN(gWO) ||
+          isNaN(aSP) ||
+          isNaN(gSP) ||
+          aWO <= 0 ||
+          gWO <= 0 ||
+          aSP <= 0 ||
+          gSP <= 0
+        ) {
+          g("s8-resultado").textContent = "Informe todos os valores.";
+          return;
+        }
+        var tanque = 42;
+        var combWO = aWO / gWO <= 0.7 ? "alcool" : "gasolina";
+        var combSP = aSP / gSP <= 0.7 ? "alcool" : "gasolina";
+        var custoWO = combWO === "alcool" ? aWO * tanque : gWO * tanque;
+        var custoSP = combSP === "alcool" ? aSP * tanque : gSP * tanque;
+        var nomeCombWO = combWO === "alcool" ? "alcool" : "gasolina";
+        var nomeCombSP = combSP === "alcool" ? "alcool" : "gasolina";
+        if (custoWO <= custoSP) {
+          g("s8-resultado").textContent =
+            nome +
+            ", e mais barato abastecer com " +
+            nomeCombWO +
+            " no posto Wayne Oil. (R$ " +
+            custoWO.toFixed(2) +
+            " vs R$ " +
+            custoSP.toFixed(2) +
+            ")";
+        } else {
+          g("s8-resultado").textContent =
+            nome +
+            ", e mais barato abastecer com " +
+            nomeCombSP +
+            " no posto Stark Petrol. (R$ " +
+            custoSP.toFixed(2) +
+            " vs R$ " +
+            custoWO.toFixed(2) +
+            ")";
+        }
+      }
+
+      // ---- PROGRAMA 9 ----
+      function resetar9() {
+        mostrar("s9-form");
+        esconder("s9-voltar");
+        g("s9-emp").value = "";
+        g("s9-vap").value = "";
+        g("s9-qtd").value = "";
+        g("s9-desc").value = "";
+        g("s9-min").value = "";
+        g("s9-msg").textContent = "";
+        g("s9-resultado").textContent = "";
+        s9empresas = [];
+      }
+
+      function s9calcular() {
+        var emp = g("s9-emp").value.trim();
+        var vap = parseFloat(g("s9-vap").value);
+        var qtd = parseInt(g("s9-qtd").value);
+        var desc = parseFloat(g("s9-desc").value);
+        var min = parseInt(g("s9-min").value);
+        if (!emp || isNaN(vap) || isNaN(qtd) || isNaN(desc) || isNaN(min)) {
+          g("s9-msg").textContent = "Preencha todos os campos.";
+          return;
+        }
+        var total = vap * qtd;
+        if (qtd >= min && desc > 0) total = total * (1 - desc / 100);
+        s9empresas.push({ emp: emp, total: total });
+        g("s9-msg").textContent =
+          "O servico de " + emp + " custara R$ " + total.toFixed(2);
+        g("s9-emp").value = "";
+        g("s9-vap").value = "";
+        g("s9-qtd").value = "";
+        g("s9-desc").value = "";
+        g("s9-min").value = "";
+        var continuar = confirm(
+          "Deseja informar novos dados, " +
+            nome +
+            "? (OK = Sim / Cancelar = Nao)",
+        );
+        if (!continuar) {
+          var menor = s9empresas[0];
+          for (var i = 1; i < s9empresas.length; i++) {
+            if (s9empresas[i].total < menor.total) menor = s9empresas[i];
+          }
+          g("s9-resultado").textContent =
+            "O orcamento de menor valor e o de " +
+            menor.emp +
+            " por R$ " +
+            menor.total.toFixed(2) +
+            ".";
+          esconder("s9-form");
+          mostrar("s9-voltar");
+        }
+      }
+    </script>
+  </body>
+</html>

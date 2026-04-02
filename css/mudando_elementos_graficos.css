@@ -1,0 +1,11 @@
+body{
+    text-align: center;
+    background-color: burlywood;
+    color: rgb(96, 49, 49);
+}
+
+.myImage{
+    width: 500px;
+    height: 400px;
+    margin: auto;
+}
