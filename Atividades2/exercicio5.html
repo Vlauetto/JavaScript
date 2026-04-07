@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repita comigo</title>
+  </head>
+  <body>
+    <p>
+      5 - Faça um algoritmo que calcule e escreva a média aritmética dos dois
+      números inteiros informados pelo usuário e todos os números inteiros entre
+      eles. Considere que o primeiro sempre será menor que o segundo.
+    </p>
+
+    <script>
+      let primeiro = parseInt(prompt("Digite o primeiro número:"));
+      let segundo = parseInt(prompt("Digite o segundo número:"));
+
+      let soma = 0;
+      let quantidade = 0;
+
+      for (let i = primeiro; i <= segundo; i++) {
+        soma = soma + i;
+        quantidade = quantidade + 1;
+      }
+
+      let media = soma / quantidade;
+      document.write("Média: " + media);
+    </script>
+  </body>
+</html>

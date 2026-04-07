@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repita comigo</title>
+  </head>
+  <body>
+    <p>
+      6 - Escreva um programa para ler 2 notas de um aluno, calcular e imprimir
+      a média final. Considere que a nota de aprovação é 9,5. Logo após escrever
+      a mensagem "Calcular a média de outro aluno Sim/Não?" e solicitar um
+      resposta. Se a resposta for "S", o programa deve ser executado novamente,
+      caso contrário deve ser encerrado exibindo a quantidade de alunos
+      aprovados.
+    </p>
+
+    <script>
+      let aprovados = 0;
+      let continuar = "Sim";
+
+      while (continuar === "Sim") {
+        let media =
+          (parseFloat(prompt("Nota 1:")) + parseFloat(prompt("Nota 2:"))) / 2;
+        document.write("Média: " + media + "<br>");
+        if (media >= 9.5) aprovados++;
+        continuar = prompt("Outro aluno? S/N");
+      }
+
+      document.write("Aprovados: " + aprovados);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repita comigo</title>
+  </head>
+  <body>
+    <p>
+      10 - Escreva um programa para imprimir todas as tabuadas de 1 a N. N será
+      informado pelo usuário.
+    </p>
+
+    <script>
+      let n = parseInt(prompt("Digite N: "));
+
+      let i = 1;
+      while (i <= n) {
+        let j = 1;
+        while (j <= 10) {
+          console.log(i + " x " + j + " = " + i * j);
+          j++;
+        }
+        console.log("");
+        i++;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repita comigo</title>
+  </head>
+  <body>
+    <p>
+      11 - Escreva um programa em que o usuário informe 10 valores e escreva
+      quantos desses valores lidos estão entre os números 24 e 42 (incluindo os
+      valores 24 e 42) e quantos deles estão fora deste intervalo.
+    </p>
+
+    <script>
+      let dentro = 0;
+      let fora = 0;
+      let i = 0;
+
+      while (i < 10) {
+        let valor = parseInt(prompt("Digite um valor: "));
+        if (valor >= 24 && valor <= 42) {
+          dentro++;
+        } else {
+          fora++;
+        }
+        i++;
+      }
+
+      console.log("Dentro: " + dentro);
+      console.log("Fora: " + fora);
+    </script>
+  </body>
+</html>

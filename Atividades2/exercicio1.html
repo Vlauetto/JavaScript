@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repita comigo</title>
+  </head>
+  <body>
+    <p>
+      Escreva um algoritmo para ler 2 valores informados pelo usuário e se o
+      segundo valor informado for igual ou menor que ZERO, deve ser lido um novo
+      valor. Ou seja, para o segundo valor não pode ser aceito o valor zero, nem
+      um valor negativo. O seu programa deve imprimir o resultado da divisão do
+      primeiro valor lido pelo segundo valor.
+    </p>
+
+    <script>
+      let primeiro = parseFloat(prompt("Digite o primeiro número"));
+
+      let segundo = parseFloat(prompt("Digite o segundo número"));
+
+      while (segundo <= 0) {
+        if (segundo === 0) {
+          alert("Erro: o valor zero não é permitido");
+        } else {
+          alert("Erro: valores negativo não é permitido");
+        }
+        segundo = parseFloat(prompt("Digite novamente o segundo número:"));
+      }
+
+      let resultado = primeiro / segundo;
+      document.write(
+        "Resultado: " + primeiro + " / " + segundo + " = " + resultado,
+      );
+    </script>
+  </body>
+</html>
