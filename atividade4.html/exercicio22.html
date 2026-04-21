@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      22) Faça um programa que leia duas matrizes 2x2 de números inteiros e
+      exiba o produto entre elas.
+    </p>
+
+    <script>
+      const matriz = [];
+          let produto = 1
+          for (let i = 0; i < 2; i++) {
+        matriz[i] = [];
+        for (let j = 0; j < 2; j++) {
+          matriz[i][j] = parseInt(prompt('Digite o elemento [${i}][${j}]:'));
+        }
+      }
+
+      for (let i = 0; i < 2; i++) {
+        let linha = "";
+        for (let j = 0; j < 2; j++) {
+          linha += matriz[i][j] + "  ";
+          produto *= matriz[i][j]
+        }
+        console.log(linha);
+      }
+      console.log("O produto total: " + produto);
+    </script>
+  </body>
+</html>

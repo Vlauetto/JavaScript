@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      21) Crie um programa que leia uma matriz 4x4 de números inteiros e exiba a
+      média aritmética dos elementos.
+    </p>
+    <script>
+      const matriz = [];
+      let soma = 0;
+      for (let i = 0; i < 4; i++) {
+        matriz[i] = [];
+        for (let j = 0; j < 4; j++) {
+          matriz[i][j] = parseInt(prompt("Digite o elemento [${i}][${j}]:"));
+        }
+      }
+
+      for (let i = 0; i < 4; i++) {
+        let linha = "";
+        for (let j = 0; j < 4; j++) {
+          linha += matriz[i][j] + "  ";
+          soma += matriz[i][j] / 16;
+        }
+        console.log(linha);
+      }
+      console.log("Soma total: " + soma.toFixed(2));
+    </script>
+  </body>
+</html>

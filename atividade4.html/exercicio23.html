@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      23) Escreva um programa que leia uma matriz 3x3 de números inteiros e
+      exiba o menor valor presente na matriz
+    </p>
+    <script>
+      const matriz = [];
+      for (let i = 0; i < 3; i++) {
+        matriz[i] = [];
+        for (let j = 0; j < 3; j++) {
+          matriz[i][j] = parseInt(prompt("Digite o elemento [${i}][${j}]:"));
+        }
+      }
+
+      for (let i = 0; i < 3; i++) {
+        let linha = "";
+        for (let j = 0; j < 3; j++) {
+          linha += matriz[i][j] + "  ";
+        }
+        console.log(linha);
+      }
+
+      let menor = matriz[0][0];
+
+      for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+          if (matriz[i][j] < menor) {
+            menor = matriz[i][j];
+          }
+        }
+      }
+
+      console.log(menor);
+    </script>
+  </body>
+</html>

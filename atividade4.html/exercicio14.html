@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>14) Escreva um programa que leia 7 números inteiros e exiba apenas os números pares. </p>
+
+    <script>
+      let numero = [];
+      let pares = 0;
+      for (let i = 0; i < 7; i++) {
+        numero[i] = parseInt(prompt("Digite um número"));
+        if ((numero[i] % 2 === 0)) {
+          pares++;
+        }
+      }
+      console.log("Os números pares são: " + pares);
+    </script>
+</body>
+</html>

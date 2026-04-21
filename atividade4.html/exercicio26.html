@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      26) Escreva um programa que leia duas matrizes 2x2 de números inteiros e
+      verifique se elas são iguais.
+    </p>
+    <script>
+      const matriz1 = [];
+      for (let i = 0; i < 2; i++) {
+        matriz1[i] = [];
+        for (let j = 0; j < 2; j++) {
+          matriz1[i][j] = parseInt(
+            prompt(`Digite o elemento da matriz um[${i}][${j}]:`),
+          );
+        }
+      }
+      for (let i = 0; i < 2; i++) {
+        let linha1 = "";
+        for (let j = 0; j < 2; j++) {
+          linha1 += matriz1[i][j] + "  ";
+        }
+        console.log(linha1);
+      }
+
+      const matriz2 = [];
+      for (let i = 0; i < 2; i++) {
+        matriz2[i] = [];
+        for (let j = 0; j < 2; j++) {
+          matriz2[i][j] = parseInt(
+            prompt(`Digite o elemento da matriz um[${i}][${j}]:`),
+          );
+        }
+      }
+      for (let i = 0; i < 2; i++) {
+        let linha2 = "";
+        for (let j = 0; j < 2; j++) {
+          linha2 += matriz2[i][j] + "  ";
+        }
+        console.log(linha2);
+      }
+
+      let iguais = true;
+
+      for (let i = 0; i < 2; i++) {
+        for (let j = 0; j < 2; j++) {
+          if (matriz1[i][j] != matriz2[i][j]) {
+            iguais = false;
+          }
+        }
+      }
+      if (iguais) {
+        console.log("As matrizes são iguais");
+      } else {
+        console.log("As matrizes são diferentes");
+      }
+    </script>
+  </body>
+</html>

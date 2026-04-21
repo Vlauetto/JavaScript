@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      29) Escreva um programa que leia uma matriz 3x3 de números inteiros e
+      verifique se ela é uma matriz identidade.
+    </p>
+    <script>
+      const matriz = [];
+      for (let i = 0; i < 3; i++) {
+        matriz[i] = [];
+        for (let j = 0; j < 3; j++) {
+          matriz[i][j] = parseInt(prompt(`Digite o elemento [${i}][${j}]:`));
+        }
+      }
+
+      for (let i = 0; i < 3; i++) {
+        let linha = "";
+        for (let j = 0; j < 3; j++) {
+          linha += matriz[i][j] + "  ";
+        }
+        console.log(linha);
+      }
+
+      let identidade = true;
+
+      for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+          if (i == j && matriz[i][j] != 1) {
+            identidade = false;
+          }
+          if (i != j && matriz[i][j] != 0) {
+            identidade = false;
+          }
+        }
+      }
+
+      if (identidade) {
+        console.log("está é uma matriz indentidade");
+      } else {
+        console.log("está não é uma matriz indentidade");
+      }
+    </script>
+  </body>
+</html>

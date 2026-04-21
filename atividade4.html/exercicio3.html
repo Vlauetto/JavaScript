@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      03) Crie um programa que leia 7 números inteiros e exiba a média
+      aritmética dos valores lidos.
+    </p>
+    <script>
+      let media = 0;
+      let meuVetor = [];
+      for (let i = 0; i < 7; i++) {
+        meuVetor[i] = parseInt(prompt("Digite 7 numeros inteiros: "));
+        media += meuVetor[i] / 7;
+      }
+      console.log("a média é: " + media.toFixed(2));
+    </script>
+  </body>
+</html>

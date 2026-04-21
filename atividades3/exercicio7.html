@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      Faça um programa que leia um número inteiro e exiba se ele é um número
+      primo usando o loop "while"
+    </p>
+    <script>
+      let n = Number(prompt("Número:"));
+      let i = 2,
+        primo = true;
+
+      while (i < n) {
+        if (n % i == 0) primo = false;
+        i++;
+      }
+
+      console.log(primo);
+    </script>
+  </body>
+</html>

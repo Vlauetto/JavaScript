@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      06) Crie um programa que leia 10 números inteiros e exiba-os em ordem
+      crescente.
+    </p>
+    <script>
+      let numeros = [10, 5, 100, 2, 8, 25];
+
+      // 2. Ordenando em ordem crescente
+      // A função (a, b) => a - b é crucial para ordenação numérica
+      numeros.sort((a, b) => a - b);
+
+      // 3. Resultado: [2, 5, 8, 10, 25, 100]
+      console.log(numeros);
+    </script>
+  </body>
+</html>

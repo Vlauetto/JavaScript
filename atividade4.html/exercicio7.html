@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    
+    <p>
+      07) Faça um programa que leia 10 números inteiros e exiba quantos deles
+      são positivos.
+    </p>
+
+    <script>
+      let positivo = 0;
+      let meuVetor = [];
+      for (let i = 0; i <= 10; i++) {
+        meuVetor[i] = parseInt(prompt("Digite 10 numeros inteiros: "));
+        if (meuVetor[i] > 0) {
+          positivo++;
+        }
+      }
+      console.log("Os numeros positivos são: " + positivo);
+    </script>
+  </body>
+</html>
