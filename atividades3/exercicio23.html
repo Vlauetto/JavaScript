@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      23) Escreva um programa que leia um número inteiro e exiba a sequência de
+      Fibonacci até o número lido usando o loop "do-while".
+    </p>
+    <script>
+      let limite = Number(prompt("Até:"));
+      let a = 0,
+        b = 1;
+
+      do {
+        console.log(a);
+        let temp = a + b;
+        a = b;
+        b = temp;
+      } while (a <= limite);
+    </script>
+  </body>
+</html>

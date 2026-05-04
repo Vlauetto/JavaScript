@@ -6,9 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <p></p>
+    <p>Escreva um programa que leia um número inteiro e exiba a sequência de Fibonacci até o número lido usando o loop "while"</p>
     <script>
-        
+        let limite = Number(prompt("Até:"))
+        let a = 0, b = 1
+
+        while (a <= limite){
+        console.log(a)
+
+        let temp = a + b
+        a = b
+        b = temp
+        } 
     </script>
 </body>
 </html>
